@@ -93,14 +93,12 @@ unsigned int ThreadMallocFunction(void*)
 				index = (index + 1) % 4;
 			}
 			PostThreadMessage(GetThreadId(g_threads[index]), WM_MALLOC, 0, (LPARAM)temp);
-//			printf("%d\n", i);
 		}
 
 		if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
 		{
 //			my_free((void*)msg.lParam);
 			free((void*)msg.lParam);
-//			printf("-1\n");
 		}
 	}
 
@@ -118,8 +116,8 @@ unsigned int ThreadFreeFunction(void*)
 		GetMessage(&msg, 0, 0, 0);
 		if (msg.message == WM_MALLOC)
 		{
-			my_free((void*)msg.lParam);
-//			free((void*)msg.lParam);
+//			my_free((void*)msg.lParam);
+			free((void*)msg.lParam);
 		}
 		else
 		{
