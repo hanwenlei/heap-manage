@@ -1,14 +1,16 @@
 #ifndef _LIBCOVERRIDEGLIBC_H_
 #define _LIBCOVERRIDEGLIBC_H_
 
+#include"MyMalloc.h"
+#ifdef HAVE_FEATURES_H
 #include<config.h>
 #include<features.h>
+#endif
 #ifdef HAVE_SYS_CDEFS_H
 #include <sys/cdefs.h>
 #endif
 
 #ifndef __GLIBC__
-#error LibcOverrideGlibc.h is for glibc distributions only.
 #endif
 
 #if !defined(__GNUC__)
